@@ -1,7 +1,7 @@
 provider "aws" {
   region     = "us-west-2"
-  access_key = "AKIAQN2UCWBUITBKOS3Y"
-  secret_key = "rd5/6FzpCeFEvQBg6AZYUW/dT0Ri6QZJs7HKrgYQ"
+  access_key = "your_access_key"
+  secret_key = "your_secret_key"
 }
 
 # Write the resource code to create ec2_instance_id, provisioner and connection in same block.
