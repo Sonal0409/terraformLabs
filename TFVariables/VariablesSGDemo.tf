@@ -1,7 +1,7 @@
 provider "aws" {
   region     = "us-west-2"
-  access_key = "AKIAQN2UCWBUO5IS3GVM"
-  secret_key = "WnZII+n+c1nomwCcxvqGXuflVLUlkllhfeQpmpbu"
+  access_key = "your_access_key"
+  secret_key = "your_secret_key"
 }
 # Example: Commandline flag
 
