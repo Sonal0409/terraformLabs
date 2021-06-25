@@ -1,0 +1,26 @@
+provider "aws" {
+  region     = "us-west-2"
+  access_key = "AKIAQN2UCWBUKHG6VJ5M"
+  secret_key = "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"
+}
+
+resource "aws_instance" "myec2" {
+  ami = "ami-0800fc0fa715fdcfe"
+  instance_type = "t2.micro"
+
+}
+resource "aws_eip" "lb1"{
+  vpc = true
+}
+
+# if you execute above code, it will just create an aws instance and a seperate elastic_ip but they are not associateed.
+# so lets do with using the resource aws_eip_association
+
+resource aws_eip_association "eip_assoc"{
+# 1. give info about which instance id should the eip be assocated to.
+# resourcetype.resourcename.attributeID
+instance_id = aws_instance.myec2.id
+# here allocation_id mean, which elestic ip id is associated to aws instance
+# you will refer the elastic ip block here.
+allocation_id= aws_eip.lb1.id
+}

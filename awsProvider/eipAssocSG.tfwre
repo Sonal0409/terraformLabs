@@ -1,0 +1,38 @@
+provider "aws" {
+  region     = "us-west-2"
+  access_key = "AKIAQN2UCWBUFKERTJGM"
+  secret_key = "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"
+}
+
+resource "aws_instance" "myec2" {
+  ami = "ami-0800fc0fa715fdcfe"
+  instance_type = "t2.micro"
+
+}
+resource "aws_eip" "lb1"{
+  vpc = true
+}
+resource aws_eip_association "eip_assoc"{
+instance_id = aws_instance.myec2.id
+allocation_id= aws_eip.lb1.id
+}
+# cidr_block here is the ip address and subnet range, thereby associating eip piblic ip to Security group.
+# we will use public_ip attribute of aws_eip resource.
+# you will get an error as "52.36.39.234" is not a valid CIDR block:, that means
+# in Cidr block you have to give complete subntet range
+# ie: ipaddres/32  => aws_eip.lb1.public_ip/32 and give in correct format
+# ie: ["${aws_eip.lb1.public_ip}/32"]
+
+resource "aws_security_group" "sg1" {
+  name   = "mysg"
+  ingress {
+
+    from_port        = 443
+    to_port          = 443
+    protocol         = "tcp"
+    # why we are writing below in this format with $ and quotes
+    # the reason is we are writing a String vairbale with integer variable.
+    cidr_blocks      = ["${aws_eip.lb1.public_ip}/32"]
+
+  }
+}

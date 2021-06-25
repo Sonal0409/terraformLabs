@@ -1,0 +1,27 @@
+provider "aws" {
+  region     = "us-west-2"
+  access_key = "AKIAQN2UCWBUKHG6VJ5M"
+  secret_key = "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"
+}
+
+resource "aws_eip" "lb"{
+  vpc = true
+}
+# to get the output value of eip
+# we call a resource block as: rosourcetype.localresourcename
+# example: aws_eip.lb
+# here public_ip is one of the attribute under eip resource
+# so you will write resourcetype.resourcename.attribute
+
+output "eip" {
+value=  aws_eip.lb.public_ip
+}
+
+resource "aws_s3_bucket" "mys3"{
+
+  bucket= "mybucket-terrform-labs1"
+}
+
+output "s3domainname" {
+value=  aws_s3_bucket.mys3.bucket_domain_name
+}
