@@ -9,7 +9,7 @@ terraform {
 
 provider "github" {
   # Configuration options
-  token = "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"
+  token = "you_token_id"
 }
 
 # create a new repo in gitHub
