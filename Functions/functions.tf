@@ -2,8 +2,8 @@
 # and we are using functions to pass different set of values.
 provider "aws" {
   region     = var.region
-  access_key = "AKIAQN2UCWBUFZKS37WI"
-  secret_key = "WDLqXLk5pAmMBW/hqoXHsCOFcY+3E/7BWNjfFi0/"
+  access_key = "your_access_key"
+  secret_key = "your_secret_key"
 }
 
 locals {
