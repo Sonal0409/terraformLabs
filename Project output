@@ -1,0 +1,37 @@
+aws_vpc.edu-vpc: Creating...
+aws_vpc.edu-vpc: Still creating... [10s elapsed]
+aws_vpc.edu-vpc: Creation complete after 15s [id=vpc-06c554eaf515e8106]
+aws_internet_gateway.gw: Creating...
+aws_subnet.subnet-1: Creating...
+aws_security_group.allow_web: Creating...
+aws_subnet.subnet-1: Creation complete after 4s [id=subnet-08d4aee3c3898c4eb]
+aws_internet_gateway.gw: Creation complete after 6s [id=igw-045b97ff5da4fda5d]
+aws_route_table.edu-route-table: Creating...
+aws_security_group.allow_web: Still creating... [10s elapsed]
+aws_security_group.allow_web: Creation complete after 11s [id=sg-0303db7e6a568bd0d]
+aws_network_interface.web-server-nic: Creating...
+aws_route_table.edu-route-table: Still creating... [11s elapsed]
+aws_route_table.edu-route-table: Creation complete after 13s [id=rtb-09daa56da692b3005]
+aws_route_table_association.a: Creating...
+aws_network_interface.web-server-nic: Still creating... [10s elapsed]
+aws_route_table_association.a: Creation complete after 5s [id=rtbassoc-0eaabffc70491fbaf]
+aws_network_interface.web-server-nic: Still creating... [20s elapsed]
+aws_network_interface.web-server-nic: Still creating... [30s elapsed]
+aws_network_interface.web-server-nic: Creation complete after 35s [id=eni-0b634fe76b782b90b]
+aws_eip.one: Creating...
+aws_eip.one: Creation complete after 5s [id=eipalloc-0f87a22d914acdae1]
+aws_instance.web-server-instance1: Creating...
+aws_instance.web-server-instance1: Still creating... [10s elapsed]
+aws_instance.web-server-instance1: Still creating... [20s elapsed]
+aws_instance.web-server-instance1: Still creating... [30s elapsed]
+aws_instance.web-server-instance1: Creation complete after 36s [id=i-0e2fd4869689917a5]
+
+Apply complete! Resources: 9 added, 0 changed, 0 destroyed.
+
+C:\Users\vishal mittal\Desktop\Myterraformpractice\PracticeProject>cls
+
+
+
+
+
+
