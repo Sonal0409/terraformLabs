@@ -1,0 +1,32 @@
+
+
+
+linux machine
+
+grafhviz
+
+yum install grafhviz
+
+vim grafh.dot
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_eip.lb (expand)" [label = "aws_eip.lb", shape = "box"]
+		"[root] aws_instance.myec2 (expand)" [label = "aws_instance.myec2", shape = "box"]
+		"[root] aws_security_group.allow_tls (expand)" [label = "aws_security_group.allow_tls", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] aws_eip.lb (expand)" -> "[root] aws_instance.myec2 (expand)"
+		"[root] aws_instance.myec2 (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_security_group.allow_tls (expand)" -> "[root] aws_eip.lb (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_security_group.allow_tls (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group.allow_tls (expand)"
+		"[root] root" -> "[root] meta.count-boundary (EachMode fixup)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}
+
+
+cat grafh.dot | dot -Tsvg/> graph.svg
+
+cat grafh.svg
